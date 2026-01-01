@@ -1,0 +1,69 @@
+{
+  "name": "gmail automation",
+  "nodes": [
+    {
+      "parameters": {
+        "sendTo": "ahmad100.fa100@gmail.com",
+        "subject": "Hello World",
+        "emailType": "text",
+        "message": "={{ $json.chatInput }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "ed7f9bd7-cf17-4bb0-90ec-50e1fefcce24",
+      "name": "Send a message",
+      "webhookId": "1fb313ee-eb74-4ac9-98fa-2b62803c6b6a",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "QfIGWQm9L8D2QvSb",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -208,
+        0
+      ],
+      "id": "68645e0c-4597-4be2-830d-00519ca79c92",
+      "name": "When chat message received",
+      "webhookId": "4a654a71-9009-474a-b628-81df9261b61e"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "versionId": "666162bd-6e45-4b16-9d8a-cfccdb74f409",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "a6f1d72524fc4df843a3dd41382d9c234250e14c5fa20363ab10b30eb67f3467"
+  },
+  "id": "7V7yE99YVag5yaRP",
+  "tags": []
+}
